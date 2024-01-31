@@ -1,16 +1,62 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <script type="text/javascript">
-            document.write("<style>body { background-color:#FFF }</style>");
-        </script>
-        <meta charset="utf-8"> <meta name="viewport" content="width=device-width,
-   initial-scale=1">
-   <title>HTML H5 Game </title>
-     </head>
-    <body>
+<html lang="en">
+<head>
+    <style>
+        body { background-color: #FFF; }
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script async
+            data-ad-client="ca-pub-8588820008944775"
+            data-admob-interstitial-slot="ca-app-pub-3940256099942544/1033173712"
+            data-admob-rewarded-slot="ca-app-pub-3940256099942544/5224354917"
+            data-ad-frequency-hint="30s"
+            data-page-url="arrowsamples.com"
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+    </script>
+    <script src="AnyManagerGameScript" charset="UTF-8"></script>
+    <script>
+        window.adsbygoogle = window.adsbygoogle || [];
+        const adBreak = adConfig = function (o) {
+            adsbygoogle.push(o);
+        }
+
+        // Function to show AdMob interstitial ad
+        function showInterstitialAd() {
+            adBreak({
+                type: 'interstitial',
+                name: 'custom_interstitial_ad',
+                beforeAd: () => {
+                    // Any setup before showing the ad
+                },
+                afterAd: () => {
+                    // Any cleanup or action after the ad is shown
+                }
+            });
+        }
+
+        // Add event listener to the "PlayAd" button
+        document.addEventListener('DOMContentLoaded', function () {
+            // Load AdMob interstitial ad
+            adBreak({
+                type: 'load',
+                name: 'admob_interstitial_ad',
+                afterLoad: () => {
+                    var playButton = document.getElementById('playButton');
+                    playButton.addEventListener('click', function () {
+                        // Show the loaded interstitial ad
+                        showInterstitialAd();
+                    });
+                }
+            });
+        });
+    </script>
+    <title>AnyManager H5 Games</title>
+</head>
+<body>
 <div id="am_html5_games">
-   <script src="AnyManagerGameScript" charset="UTF-8"></script>
-       </div>
-    </body>
+    <script src="AnyManagerGameScript" charset="UTF-8"></script>
+</div>
+<button id="playButton">PlayAd</button>
+</body>
 </html>
